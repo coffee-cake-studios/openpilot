@@ -33,7 +33,7 @@ class CarControllerParams:
 
   ACCEL_MAX = 2.0               # m/s^2 max acceleration
   ACCEL_MIN = -3.5              # m/s^2 max deceleration
-  MIN_GAS = -0.95
+  MIN_GAS = -0.5
   INACTIVE_GAS = -5.0
 
   def __init__(self, CP):
