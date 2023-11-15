@@ -86,7 +86,7 @@ class CarController:
       # Both gas and accel are in m/s^2, accel is used solely for braking
       accel = clip(actuators.accel, CarControllerParams.ACCEL_MIN, CarControllerParams.ACCEL_MAX)
       gas = accel
-      if not CC.longActive or gas < CarControllerParams.MIN_GAS:
+      if not CC.longActive or gas < 1:
         gas = CarControllerParams.INACTIVE_GAS
 
       stopping = CC.actuators.longControlState == LongCtrlState.stopping
