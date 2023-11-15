@@ -137,7 +137,7 @@ def create_acc_msg(packer, CAN: CanBus, long_active: bool, gas: float, accel: fl
     # TODO: we may be able to improve braking response by utilizing pre-charging better
     "AccBrkPrchg_B_Rq": 0 if newDecelValue else 0,            # Pre-charge brake request: 0=No, 1=Yes
     "AccBrkDecel_B_Rq": 0 if newDecelValue else 0,            # Deceleration request: 0=Inactive, 1=Active
-    "AccStopStat_B_Rq": 1 if stopping else 0,
+    "AccStopStat_B_Rq": 0 if stopping else 0,
   }
   return packer.make_can_msg("ACCDATA", CAN.main, values)
 
