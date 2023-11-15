@@ -131,7 +131,7 @@ def create_acc_msg(packer, CAN: CanBus, long_active: bool, gas: float, accel: fl
   decel = accel < 0 and long_active
   brake = (accel < -1.0 or stopping) and long_active
   values = {
-    "AccBrkTot_A_Rq": gas,                            # Brake total accel request: [-20|11.9449] m/s^2
+    "AccBrkTot_A_Rq": accel,                          # Brake total accel request: [-20|11.9449] m/s^2
     "Cmbb_B_Enbl": 1 if long_active else 0,           # Enabled: 0=No, 1=Yes
     "AccPrpl_A_Rq": gas,                              # Acceleration request: [-5|5.23] m/s^2
     "AccPrpl_A_Pred": accel,
