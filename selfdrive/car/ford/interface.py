@@ -60,10 +60,6 @@ class CarInterface(CarInterfaceBase):
       ret.wheelbase = 3.70
       ret.steerRatio = 16.9
       ret.mass = 2948
-      ret.longitudinalTuning.kpBP = [0.2]
-      ret.longitudinalTuning.kpV = [0.7]
-      ret.longitudinalTuning.kiBP = [0.]
-      ret.longitudinalTuning.kiV = [0.]
 
     elif candidate == CAR.MUSTANG_MACH_E_MK1:
       ret.wheelbase = 2.984
