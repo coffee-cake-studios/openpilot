@@ -44,6 +44,7 @@ class CarState(CarStateBase):
 
     # Ford desired speed
     self.desiredSpeed = cp_cam.vl["ACCDATA"]["AccVeh_V_Trg"]
+    self.brakeTorque = cp_cam.vl["ACCDATA"][AccBrkTot_A_Rq"]
 
     # brake pedal
     ret.brake = cp.vl["BrakeSnData_4"]["BrkTot_Tq_Actl"] / 32756.  # torque in Nm
