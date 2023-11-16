@@ -60,7 +60,7 @@ class CarInterface(CarInterfaceBase):
       ret.wheelbase = 3.70
       ret.steerRatio = 16.9
       ret.mass = 2948
-      ret.longitudinalTuning.kvBP = [0.]
+      ret.longitudinalTuning.kpBP = [0.]
       ret.longitudinalTuning.kpV = [0.5]
       ret.longitudinalTuning.kiBP = [0.]
       ret.longitudinalTuning.kiV = [0.]
