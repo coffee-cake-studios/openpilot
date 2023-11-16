@@ -118,7 +118,7 @@ def create_lat_ctl2_msg(packer, CAN: CanBus, mode: int, path_offset: float, path
   return packer.make_can_msg("LateralMotionControl2", CAN.main, values)
 
 
-def create_acc_msg(packer, CAN: CanBus, long_active: bool, gas: float, accel: float, stopping: bool):
+def create_acc_msg(packer, CAN: CanBus, long_active: bool, gas: float, accel: float, stopping: bool, desired_speed: float):
   """
   Creates a CAN message for the Ford ACC Command.
 
@@ -135,6 +135,7 @@ def create_acc_msg(packer, CAN: CanBus, long_active: bool, gas: float, accel: fl
     "Cmbb_B_Enbl": 1 if long_active else 0,           # Enabled: 0=No, 1=Yes
     "AccPrpl_A_Rq": gas,                              # Acceleration request: [-5|5.23] m/s^2
     "AccPrpl_A_Pred": gas,
+    "AccVeh_V_Trg": desired_speed,
     "AccResumEnbl_B_Rq": 1 if long_active else 0,
     # TODO: we may be able to improve braking response by utilizing pre-charging better
     "AccBrkPrchg_B_Rq": 1 if stopping else 0,                             # Pre-charge brake request: 0=No, 1=Yes
