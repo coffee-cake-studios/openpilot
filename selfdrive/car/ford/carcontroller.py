@@ -91,7 +91,8 @@ class CarController:
 
       stopping = CC.actuators.longControlState == LongCtrlState.stopping
       desired_speed = CS.desiredSpeed
-      can_sends.append(fordcan.create_acc_msg(self.packer, self.CAN, CC.longActive, gas, accel, stopping, desired_speed))
+      brake_torque = CS.brakeTorque
+      can_sends.append(fordcan.create_acc_msg(self.packer, self.CAN, CC.longActive, gas, accel, stopping, desired_speed, brake_torque))
 
     ### ui ###
     send_ui = (self.main_on_last != main_on) or (self.lkas_enabled_last != CC.latActive) or (self.steer_alert_last != steer_alert)
