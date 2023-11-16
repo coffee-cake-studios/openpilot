@@ -90,7 +90,7 @@ class CarController:
         gas = CarControllerParams.INACTIVE_GAS
 
       stopping = CC.actuators.longControlState == LongCtrlState.stopping
-      desired_speed = CS.out.desiredSpeed
+      desired_speed = CS.desiredSpeed
       can_sends.append(fordcan.create_acc_msg(self.packer, self.CAN, CC.longActive, gas, accel, stopping, desired_speed))
 
     ### ui ###
