@@ -92,7 +92,7 @@ class CarController:
 
 
       stopping = CC.actuators.longControlState == LongCtrlState.stopping
-      can_sends.append(fordcan.create_acc_msg(self.packer, self.CAN, CC.longActive, gas, accel, accel_last, stopping))
+      can_sends.append(fordcan.create_acc_msg(self.packer, self.CAN, CC.longActive, gas, accel, self.accel_last, stopping))
 
       self.accel_last = accel
 
