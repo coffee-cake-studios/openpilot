@@ -1,5 +1,7 @@
 from cereal import car
 from openpilot.selfdrive.car import CanBusBase
+from openpilot.common.numpy_fast import clip
+
 
 HUDControl = car.CarControl.HUDControl
 
