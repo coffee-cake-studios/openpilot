@@ -128,10 +128,18 @@ def create_acc_msg(packer, CAN: CanBus, long_active: bool, gas: float, accel: fl
   Frequency is 50Hz.
   """
 
+  jerk = 5
+  jn = jerk / 50
+  if not long_active:
+    a_val, a_raw = 0, 0
+  else:
+    a_raw = accel
+    a_val = clip(accel, accel_last - jn, accel_last + jn)
+
   decel = accel < 0 and long_active
   newDecelValue = gas == -5 and long_active and accel < -.75
   values = {
-    "AccBrkTot_A_Rq": accel,                          # Brake total accel request: [-20|11.9449] m/s^2
+    "AccBrkTot_A_Rq": a_val,                          # Brake total accel request: [-20|11.9449] m/s^2
     "Cmbb_B_Enbl": 1 if long_active else 0,           # Enabled: 0=No, 1=Yes
     "AccPrpl_A_Rq": gas,                              # Acceleration request: [-5|5.23] m/s^2
     "AccResumEnbl_B_Rq": 1 if long_active else 0,
